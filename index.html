@@ -15,6 +15,23 @@
     </div>
     <span style="font-size:30px;cursor:pointer;color:white;margin:50px" onclick="openNav()">&#9776; Previous Steps</span>
     <div id="game-modal">
+
+      <!-- <div id="main">
+        <div id="center-text" class="home-group" onclick="transitionPage(this, HOMEGROUP, MUDBLOODGROUP)">
+          <h1 class="click-text-glow-white">My Favorite Hog</h3>
+        </div>
+      </div> -->
+
+      <form id="user-form" method="post">
+        <h1>Create an Account</h1>
+        <h2>Name: <input id="form-name" type="text" placeholder="name"></h2>
+        <h2>Character Name: <input id="form-character" type="text" placeholder="character name"></h2>
+        <h2>Favorite Food: <input id="form-food" type="text" placeholder="favorite food"></h2>
+        <h2>First Job: <input id="form-job" type="text" placeholder="first job"></h2>
+        <h2>Favorite Animal: <input id="form-animal" type="text" placeholder="favorite animal"></h2>
+        <h2><input type="submit" value="Submit">
+      </form>
+
       <h2 id="stage-text"></h2>
       <h3 id="description-text"></h3>
       <ul id="body-list"></ul>
@@ -29,6 +46,7 @@
       function closeNav() {
           document.getElementById("mySidenav").style.width = "0";
       }
+
     </script>
   </body>
 </html>
