@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  //~~~~~~~~~~~~~~~~~~ ALL CARD FLIP ANI~~~~~~~~~~~~~~~~~~
+  $(".card").flip()
+  //~~~~~~~~~~~~~~~~~~ ALL CARD FLIP ANI~~~~~~~~~~~~~~~~~~
+  //~~~~~~~~~~~~~~~~~~ ALL SIDE NAV ANI~~~~~~~~~~~~~~~~~~
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+  //~~~~~~~~~~~~~~~~~~ ALL SIDE NAV ANI~~~~~~~~~~~~~~~~~~
+
   function getData(){
     fetch ('http://localhost:3000/api/v1/story_stages')
       .then(response => response.json())
