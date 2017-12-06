@@ -28,8 +28,9 @@ body {
 }
 
 .card {
-  max-width: 400px;
-  max-height: 400px;
+  width: 200px;
+  height: 200px;
+  margin: 10xp;
 }
 
 .front, .back {
