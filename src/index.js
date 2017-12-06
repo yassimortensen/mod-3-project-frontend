@@ -4,60 +4,105 @@ document.addEventListener('DOMContentLoaded', function() {
   function getData(){
     fetch ('http://localhost:3000/api/v1/story_stages')
       .then(response => response.json())
-      .then(data => displayData(data))
+      .then(data => displayStage(data))
   }
   getData()
 
-  function displayData(data){
+  function displayStage(data, selected=null){
     let stageTitle = document.getElementById('stage-text')
     let descriptionText = document.getElementById('description-text')
     let bodyList = document.getElementById('body-list')
     let buttonDiv = document.getElementById('button-container')
+    let mySidenav = document.getElementById('mySidenav')
 
-    stageTitle.innerText = data[0].stage
-    descriptionText.innerText = data[0].description
+    let ulList = document.getElementsByTagName('li')
+    while (ulList[0]) ulList[0].parentNode.removeChild(ulList[0])
 
+    let buttons = document.getElementsByClassName('card')
+    while (buttons[0]) buttons[0].parentNode.removeChild(buttons[0])
 
-    data.forEach(element => {
-    	if (element.stage === "hide"){
+    // var elements = document.getElementsByTagName('label')
+    // while (elements[0]) elements[0].parentNode.removeChild(elements[0])
+
+    let stageArray = [];
+    if (selected){
+      data.forEach(object => {
+        if (object.stage === selected){
+          stageArray.push(object)
+        }
+      })
+      // description/long prompt text
+      descriptionText.innerText = stageArray[0].description
+      // bulleted option text
+      stageArray.forEach(object => {
         let li = document.createElement('li')
-    		li.innerText = element.body
+        li.innerText = object.body
         bodyList.appendChild(li)
 
-
+        // building cards for flip
         let card = document.createElement('div')
-        buttonDiv.appendChild(card)
         card.setAttribute("class","card")
-
+        buttonDiv.appendChild(card)
+        //building front and back of card
         let front = document.createElement('div')
-
-        let image = document.createElement('img')
-
-        front.setAttribute("class", "front")
-        image.src = element.pic.picUrl
-        front.appendChild(image)
-
         let back = document.createElement('div')
-
-        let button = document.createElement('button')
+        front.setAttribute("class", "front")
         back.setAttribute("class", "back")
-        button.setAttribute("type", "button")
-        button.setAttribute("name", "button")
-
-
-        button.id = `${element.body}`
-        button.innerText = element.body
+        //building button for back of card
+        let step = document.createElement('a')
+        step.innerText = selected
+        mySidenav.appendChild(step)
+        let button = document.createElement('button')
+        button.id = `${object.button}`
+        button.innerText = object.body
+        button.addEventListener("click", function(){
+          displayStage(data, event.target.id)
+        })
         back.appendChild(button)
-
+        // finishing card for flip
         card.appendChild(front)
         card.appendChild(back)
-
-
         $(".card").flip()
+      })
 
-      }
-    })
 
+    } else {
+      data.forEach(object => {
+        if (object.stage === "top"){
+          return stageArray.push(object)
+        }
+      })
+      // description/long prompt text
+      descriptionText.innerText = stageArray[0].description
+      // bulleted option text
+      stageArray.forEach(object => {
+        let li = document.createElement('li')
+        li.innerText = object.body
+        bodyList.appendChild(li)
+
+        // building cards for flip
+        let card = document.createElement('div')
+        card.setAttribute("class","card")
+        buttonDiv.appendChild(card)
+        //building front and back of card
+        let front = document.createElement('div')
+        let back = document.createElement('div')
+        front.setAttribute("class", "front")
+        back.setAttribute("class", "back")
+        //building button for back of card
+        let button = document.createElement('button')
+        button.id = `${object.button}`
+        button.innerText = object.body
+        button.addEventListener("click", function(){
+          displayStage(data, event.target.id)
+        })
+        back.appendChild(button)
+
+        // finishing card for flip
+        card.appendChild(front)
+        card.appendChild(back)
+        $(".card").flip()
+      })
+    }
   }
-
 })
