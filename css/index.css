@@ -1,0 +1,86 @@
+html, body { height: 100%; width: 100%; margin: 0; }
+
+body {
+  background-image: url('https://dncache-mauganscorp.netdna-ssl.com/thumbseg/1663/1663021-bigthumbnail.jpg');
+  background-color: black;
+  background-position: right bottom; /*Positioning*/
+  background-repeat: no-repeat; /*Prevent showing multiple background images*/
+  background-attachment: fixed;
+  font-family: 'Cinzel', serif;
+}
+
+#game-modal{
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 25px;
+  background-color: grey;
+  width: 65%;
+  height: 85%;
+  padding: 10px;
+}
+
+#button-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.card {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.front, .back {
+  padding: 40px;
+}
+
+.back-div {
+
+}
+
+
+img {
+    width: 100%;
+    max-height: 100%;
+}
+/*~~~~~~~~~~~~~~~~~ALL SIDE NAV ANI~~~~~~~~~~~~~~~~~~*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
