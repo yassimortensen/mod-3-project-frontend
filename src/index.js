@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     data.forEach(element => {
-    	if (element.stage === "hide"){
+    	if (element.stage === "top"){
         let li = document.createElement('li')
     		li.innerText = element.body
         bodyList.appendChild(li)
