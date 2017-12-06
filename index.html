@@ -90,39 +90,20 @@
     </div>
     <span style="font-size:30px;cursor:pointer;color:white;margin:50px" onclick="openNav()">&#9776; Previous Steps</span>
     <div id="game-modal">
-      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacinia feugiat pulvinar. Mauris vehicula magna eget tempus vehicula. Praesent ullamcorper, odio in cursus finibus, leo sapien elementum ex, sit amet accumsan ante mauris id ipsum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed interdum condimentum neque sed tincidunt. Nunc sollicitudin tincidunt arcu non tincidunt. Ut luctus sollicitudin viverra. Aenean dapibus porttitor felis, vel iaculis urna varius at.</h3>
-      <ul>
-        <li>Lorem ipsum dolor</li>
-        <li>amet, consectetur adipiscing</li>
-        <li>elit. Nullam lacinia</li>
-      </ul>
-      <div id="button-container">
-        <div class = "card">
-          <div class="front">
-            <img src="http://78.media.tumblr.com/d54ca3d5f68fc3097277b89d3fd44055/tumblr_ovm7ku7GBB1tuzdqso1_540.jpg">
-          </div>
-          <div class="back">
-            <button type="button" name="button">Run</button>
-          </div>
-        </div>
-        <div class = "card">
-          <div class="front">
-            <img src="http://78.media.tumblr.com/d54ca3d5f68fc3097277b89d3fd44055/tumblr_ovm7ku7GBB1tuzdqso1_540.jpg">
-          </div>
-          <div class="back">
-            <button type="button" name="button">Hide</button>
-          </div>
-        </div>
-        <div class = "card">
-          <div class="front">
-            <img src="http://78.media.tumblr.com/d54ca3d5f68fc3097277b89d3fd44055/tumblr_ovm7ku7GBB1tuzdqso1_540.jpg">
-          </div>
-          <div class="back">
-            <button type="button" name="button">Fight</button>
-          </div>
-        </div>
-      </div>
+      <h2 id="stage-text"></h2>
+      <h3 id="description-text"></h3>
+      <ul id="body-list"></ul>
+      <div id="button-container"></div>
     </div>
-    <script src="./index.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+    <script>
+      function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
   </body>
 </html>

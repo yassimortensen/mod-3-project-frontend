@@ -1,17 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  //~~~~~~~~~~~~~~~~~~ ALL CARD FLIP ANI~~~~~~~~~~~~~~~~~~
-  $(".card").flip()
-  //~~~~~~~~~~~~~~~~~~ ALL CARD FLIP ANI~~~~~~~~~~~~~~~~~~
-  //~~~~~~~~~~~~~~~~~~ ALL SIDE NAV ANI~~~~~~~~~~~~~~~~~~
-  function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-  }
-
-  function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-  }
-  //~~~~~~~~~~~~~~~~~~ ALL SIDE NAV ANI~~~~~~~~~~~~~~~~~~
 
   function getData(){
     fetch ('http://localhost:3000/api/v1/story_stages')
@@ -29,20 +17,43 @@ document.addEventListener('DOMContentLoaded', function() {
     stageTitle.innerText = data[0].stage
     descriptionText.innerText = data[0].description
 
+
     data.forEach(element => {
     	if (element.stage === "hide"){
         let li = document.createElement('li')
     		li.innerText = element.body
         bodyList.appendChild(li)
 
-        let button = document.createElement('button')
+
+        let card = document.createElement('div')
+        buttonDiv.appendChild(card)
+        card.setAttribute("class","card")
+
+        let front = document.createElement('div')
+
         let image = document.createElement('img')
-        let buttonText = document.createElement('p')
+
+        front.setAttribute("class", "front")
         image.src = element.pic.picUrl
-        buttonText.innerText = element.body
-        button.appendChild(image)
-        button.appendChild(buttonText)
-        buttonDiv.appendChild(button)
+        front.appendChild(image)
+
+        let back = document.createElement('div')
+
+        let button = document.createElement('button')
+        back.setAttribute("class", "back")
+        button.setAttribute("type", "button")
+        button.setAttribute("name", "button")
+
+
+        button.id = `${element.body}`
+        button.innerText = element.body
+        back.appendChild(button)
+
+        card.appendChild(front)
+        card.appendChild(back)
+
+
+        $(".card").flip()
 
       }
     })

@@ -33,13 +33,12 @@ body {
 }
 
 .front, .back {
-  display:flex;
+  display: flex;
   padding: 40px;
 }
-
+/*
 .back-div {
-
-}
+}*/
 
 
 img {
