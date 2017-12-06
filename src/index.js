@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function getData(user){
     fetch ('http://localhost:3000/api/v1/story_stages')
       .then(response => response.json())
-      .then(data => displayData(data, user))
+      .then(data => displayStage(data, user))
   }
 
   function displayStage(data, user, selected=null){
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.id = `${object.button}`
         button.innerText = object.body
         button.addEventListener("click", function(){
-          displayStage(data, event.target.id)
+          displayStage(data, user, event.target.id)
         })
         back.appendChild(button)
 
