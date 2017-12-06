@@ -33,6 +33,7 @@ body {
 }
 
 .front, .back {
+  display:flex;
   padding: 40px;
 }
 
@@ -45,6 +46,11 @@ img {
     width: 100%;
     max-height: 100%;
 }
+/*
+.sidebar-sequence__frame{
+  width:auto;
+  height: auto;
+}*/
 /*~~~~~~~~~~~~~~~~~ALL SIDE NAV ANI~~~~~~~~~~~~~~~~~~*/
 .sidenav {
     height: 100%;
@@ -84,7 +90,5 @@ img {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-<<<<<<< HEAD
+
 /*~~~~~~~~~~~~~~~~~ALL SIDE NAV ANI~~~~~~~~~~~~~~~~~~*/
-=======
->>>>>>> a0bcc18a5f74cb85735aac7617df5c41181ef529
