@@ -3,34 +3,48 @@
   <head>
     <meta charset="utf-8">
     <title>Game of Dethroned(s)</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
   </head>
   <body>
-    <div id="stage-container">
-      <div id="stage">
-        <h1>STAGE NAME FOR TEST</h1>
-      </div>
-      <div id="description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis scelerisque urna, a mollis nunc. Cras mattis elit ac ipsum consequat, et ornare orci eleifend. In tortor dui, porta ac fermentum ut, finibus id tortor. Proin nec mauris augue. Maecenas tincidunt fringilla dignissim. Maecenas ante urna, dapibus a iaculis eget, euismod sit amet leo. Sed ac luctus enim.</p>
-      </div>
-      <div id="body-container">
-        <ul>
-          <li>Run</li>
-          <li>Hide</li>
-          <li>Seek</li>
-        </ul>
-      </div>
-      <div id="button-container">
-        <button>
-          <img src='https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/005/075/2c8/384fa26.jpg'><p>Run</p>
-        </button>
-        <button>
-          <img src='https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/005/075/2c8/384fa26.jpg'><p>Hide</p>
-        </button>
-        <button>
-          <img src='https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/005/075/2c8/384fa26.jpg'><p>Seek</p>
-        </button>
-      </div>
-      <div id="next_step">TEST</div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Run</a>
+      <a href="#">Hide</a>
+      <a href="#">Seek</a>
+      <a href="#">Etc</a>
     </div>
+    <span style="font-size:30px;cursor:pointer;color:white;margin:50px" onclick="openNav()">&#9776; Previous Steps</span>
+    <div id="game-modal">
+      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacinia feugiat pulvinar. Mauris vehicula magna eget tempus vehicula. Praesent ullamcorper, odio in cursus finibus, leo sapien elementum ex, sit amet accumsan ante mauris id ipsum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed interdum condimentum neque sed tincidunt. Nunc sollicitudin tincidunt arcu non tincidunt. Ut luctus sollicitudin viverra. Aenean dapibus porttitor felis, vel iaculis urna varius at.</h3>
+      <ul>
+        <li>Lorem ipsum dolor</li>
+        <li>amet, consectetur adipiscing</li>
+        <li>elit. Nullam lacinia</li>
+      </ul>
+      <div id="button-container">
+        <div class = "card">
+          <div class="front"><img src="http://78.media.tumblr.com/d54ca3d5f68fc3097277b89d3fd44055/tumblr_ovm7ku7GBB1tuzdqso1_540.jpg"></div>
+          <div class="back">
+            <button type="button" name="button"><div class="back-div">Run</div></button>
+          </div>
+        </div>
+        <div class = "card">
+          <div class="front"><img src="http://78.media.tumblr.com/d54ca3d5f68fc3097277b89d3fd44055/tumblr_ovm7ku7GBB1tuzdqso1_540.jpg"></div>
+          <div class="back">
+            <button type="button" name="button"><div class="back-div">Hid</div>e</button>
+          </div>
+        </div>
+        <div class = "card">
+          <div class="front"><img src="http://78.media.tumblr.com/d54ca3d5f68fc3097277b89d3fd44055/tumblr_ovm7ku7GBB1tuzdqso1_540.jpg"></div>
+          <div class="back">
+            <button type="button" name="button"><div class="back-div">Fig</div>ht</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
   </body>
 </html>
