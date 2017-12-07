@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
       descriptionText.innerText = stageArray[0].description
       // bulleted option text
       stageArray.forEach(object => {
+
         let li = document.createElement('li')
         li.innerText = object.body
         bodyList.appendChild(li)
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.innerText = object.body
         button.addEventListener("click", function(){
           displayStage(data, user, event.target.id)
+          persistStory(user.id, object.id)
         })
         back.appendChild(button)
         // finishing card for flip
@@ -139,9 +141,12 @@ document.addEventListener('DOMContentLoaded', function() {
         let button = document.createElement('button')
         button.id = `${object.button}`
         button.innerText = object.body
+
         button.addEventListener("click", function(){
           displayStage(data, user, event.target.id)
+          persistStory(user.id, object.id)
         })
+
         back.appendChild(button)
         // finishing card for flip
         card.appendChild(front)
@@ -150,4 +155,21 @@ document.addEventListener('DOMContentLoaded', function() {
       })
     }
   }
+
+  function persistStory(user, object_id){
+    fetch ('http://localhost:3000/api/v1/user_stories', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: user,
+        story_stage_id: object_id
+      })
+    })
+      .then(response => response.json())
+      .then(userStory => console.log(userStory))
+  }
+
 })
