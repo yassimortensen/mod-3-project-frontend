@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
 
   function hideForm(){
@@ -74,9 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let buttons = document.getElementsByClassName('card')
     while (buttons[0]) buttons[0].parentNode.removeChild(buttons[0])
 
-    // var elements = document.getElementsByTagName('label')
-    // while (elements[0]) elements[0].parentNode.removeChild(elements[0])
-
     let stageArray = [];
     if (selected){
       data.forEach(object => {
@@ -92,7 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let li = document.createElement('li')
         li.innerText = object.body
         bodyList.appendChild(li)
-
         // building cards for flip
         let card = document.createElement('div')
         card.setAttribute("class","card")
@@ -102,6 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let back = document.createElement('div')
         front.setAttribute("class", "front")
         back.setAttribute("class", "back")
+        //building image for front of card
+        let img = document.createElement('img')
+        img.setAttribute("src",`${object.pic.picUrl}`)
+        front.appendChild(img)
         //building button for back of card
         let step = document.createElement('a')
         step.innerText = selected
@@ -110,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.id = `${object.button}`
         button.innerText = object.body
         button.addEventListener("click", function(){
-          displayStage(data, event.target.id)
+          displayStage(data, user, event.target.id)
         })
         back.appendChild(button)
         // finishing card for flip
@@ -118,8 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
         card.appendChild(back)
         $(".card").flip()
       })
-
-
     } else {
       data.forEach(object => {
         if (object.stage === "top"){
@@ -133,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let li = document.createElement('li')
         li.innerText = object.body
         bodyList.appendChild(li)
-
         // building cards for flip
         let card = document.createElement('div')
         card.setAttribute("class","card")
@@ -143,6 +141,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let back = document.createElement('div')
         front.setAttribute("class", "front")
         back.setAttribute("class", "back")
+        //building image for front of card
+        let img = document.createElement('img')
+        img.setAttribute("src",`${object.pic.picUrl}`)
+        front.appendChild(img)
         //building button for back of card
         let button = document.createElement('button')
         button.id = `${object.button}`
@@ -151,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
           displayStage(data, user, event.target.id)
         })
         back.appendChild(button)
-
         // finishing card for flip
         card.appendChild(front)
         card.appendChild(back)
