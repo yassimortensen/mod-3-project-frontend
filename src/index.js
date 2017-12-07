@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
           stageArray.push(object)
         }
       })
+      document.getElementById('previous_steps').style.visibility="visible"
       // description/long prompt text
       descriptionText.innerText = stageArray[0].description
       // bulleted option text
@@ -119,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       // description/long prompt text
       descriptionText.innerText = stageArray[0].description
+      descriptionText.innerText.replace("Hot Pie", user.name)
       // bulleted option text
       stageArray.forEach(object => {
         let li = document.createElement('li')
