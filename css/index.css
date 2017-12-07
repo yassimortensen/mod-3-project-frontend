@@ -7,6 +7,7 @@ body {
   background-repeat: no-repeat; /*Prevent showing multiple background images*/
   background-attachment: fixed;
   font-family: 'Cinzel', serif;
+  cursor: url(http://cur.cursors-4u.net/sports/spo-1/spo15.cur), progress !important;
 }
 
 #game-modal{
@@ -20,6 +21,7 @@ body {
   line-height: 1.5;
   height: auto;
   width: 75%;
+  margin-top: 30px;
 }
 
 #button-container {
@@ -61,8 +63,23 @@ button {
   color: #FFD700;
   background-color: #74140C;
   border-color: #74140C;
-  border-radius: 25px
+  border-radius: 25px;
+  /*cursor: url(images/sword.png), auto;*/
 }
+
+button:hover{
+  cursor: url(http://cur.cursors-4u.net/sports/spo-1/spo15.cur), progress !important;
+}
+
+input{
+  font-family: 'Cinzel', serif;
+}
+
+input:hover{
+  cursor: url(http://cur.cursors-4u.net/sports/spo-1/spo15.cur), progress !important;
+}
+
+
 /*attempts at animating the box shadow*/
 /*@keyframes shadowPulse {
     0% {
