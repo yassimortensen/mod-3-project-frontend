@@ -104,7 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // finishing card for flip
         card.appendChild(front)
         card.appendChild(back)
-        $(".card").flip()
+        $(".card").flip({
+          trigger:'hover'
+        })
       })
     } else {
       data.forEach(object => {
@@ -143,7 +145,21 @@ document.addEventListener('DOMContentLoaded', function() {
         // finishing card for flip
         card.appendChild(front)
         card.appendChild(back)
-        $(".card").flip()
+        $(".card").flip({
+          trigger:'hover'
+        })
+        // attempts at animating the box shadow
+        // $(".card").addClass('shadow-pulse');
+        // $(".card").on('cssanimationend', function(){
+        //   $(".card").removeClass('shadow-pulse');
+        //   // do something else...
+        // });
+        // $(".card").animate({
+        //   'trigger': 'hover',
+        //   'boxShadowX': '10px',
+        //   'boxShadowY':'10px',
+        //   'boxShadowBlur': '20px'
+        // });
       })
     }
   }
