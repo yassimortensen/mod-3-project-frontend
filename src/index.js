@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let descriptionText = document.getElementById('description-text')
     let bodyList = document.getElementById('body-list')
     let buttonDiv = document.getElementById('button-container')
-    let mySidenav = document.getElementById('mySidenav')
+
 
     let ulList = document.getElementsByTagName('li')
     while (ulList[0]) ulList[0].parentNode.removeChild(ulList[0])
@@ -91,15 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
         img.setAttribute("src",`${object.pic.picUrl}`)
         front.appendChild(img)
         //building button for back of card
-        let step = document.createElement('a')
-        step.innerText = selected
-        mySidenav.appendChild(step)
-        //building button for back of card
+        // let step = document.createElement('a')
+        // step.innerText = selected
+        // mySidenav.appendChild(step)
         let button = document.createElement('button')
         button.id = `${object.button}`
         button.innerText = object.body
         button.addEventListener("click", function(){
           displayStage(data, user, event.target.id)
+          persistStory(user.id, object.id)
         })
         back.appendChild(button)
         // finishing card for flip
@@ -140,9 +140,12 @@ document.addEventListener('DOMContentLoaded', function() {
         let button = document.createElement('button')
         button.id = `${object.button}`
         button.innerText = object.body
+
         button.addEventListener("click", function(){
           displayStage(data, user, event.target.id)
+          persistStory(user.id, object.id)
         })
+
         back.appendChild(button)
         // finishing card for flip
         card.appendChild(front)
@@ -165,4 +168,39 @@ document.addEventListener('DOMContentLoaded', function() {
       })
     }
   }
+
+  function persistStory(user, object_id){
+    fetch ('http://localhost:3000/api/v1/user_stories', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: user,
+        story_stage_id: object_id
+      })
+    })
+      .then(response => response.json())
+      .then(userStory => addToSideBar(userStory))
+  }
+
+  function addToSideBar(userStory){
+
+    if (userStory.story_stage.nextStep === "#top"){
+      let sideBarElements = document.getElementsByClassName('sidebar-element')
+      while (sideBarElements[0]) sideBarElements[0].parentNode.removeChild(sideBarElements[0])
+    }
+
+    let step = document.createElement('a')
+    step.setAttribute("class", "sidebar-element")
+    let mySidenav = document.getElementById('mySidenav')
+    step.innerText = userStory.story_stage.body
+    mySidenav.appendChild(step)
+
+  }
+
+  // let ulList = document.getElementsByTagName('li')
+  // while (ulList[0]) ulList[0].parentNode.removeChild(ulList[0])
+
 })
