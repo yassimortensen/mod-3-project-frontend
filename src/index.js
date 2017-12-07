@@ -89,6 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let back = document.createElement('div')
         front.setAttribute("class", "front")
         back.setAttribute("class", "back")
+        //building image for front of card
+        let img = document.createElement('img')
+        img.setAttribute("src",`${object.pic.picUrl}`)
+        front.appendChild(img)
         //building button for back of card
         let step = document.createElement('a')
         step.innerText = selected
@@ -118,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let li = document.createElement('li')
         li.innerText = object.body
         bodyList.appendChild(li)
-
         // building cards for flip
         let card = document.createElement('div')
         card.setAttribute("class","card")
@@ -128,6 +131,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let back = document.createElement('div')
         front.setAttribute("class", "front")
         back.setAttribute("class", "back")
+        //building image for front of card
+        let img = document.createElement('img')
+        img.setAttribute("src",`${object.pic.picUrl}`)
+        front.appendChild(img)
         //building button for back of card
         let button = document.createElement('button')
         button.id = `${object.button}`
