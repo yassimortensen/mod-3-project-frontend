@@ -43,7 +43,11 @@ form {
   background-color: #ffffff;
   /*border-color: #74140C;*/
   /*border-radius: 25px;*/
+}
 
+#not-dragon-button{
+  display: inline;
+  float: right;
 }
 
 
