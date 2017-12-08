@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
 
   let formListener = document
@@ -52,20 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let descriptionText = document.getElementById('description-text')
     let bodyList = document.getElementById('body-list')
     let buttonDiv = document.getElementById('button-container')
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-    stageTitle.innerText = data[0].stage
-    descriptionText.innerText = data[0].description
-
-
-    data.forEach(element => {
-    	if (element.stage === "top"){
-=======
-    let mySidenav = document.getElementById('mySidenav')
-=======
-
->>>>>>> draft
 
     let ulList = document.getElementsByTagName('li')
     while (ulList[0]) ulList[0].parentNode.removeChild(ulList[0])
@@ -110,13 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
       descriptionText.innerText = editText(user,stageArray[0].description)
       // bulleted option text
       stageArray.forEach(object => {
-<<<<<<< HEAD
->>>>>>> 66674fa739b5cf45df0cc8c99b7e6edc402854ad
-        let li = document.createElement('li')
-        li.innerText = editText(user, object.body)
-        bodyList.appendChild(li)
-=======
->>>>>>> draft
         // building cards for flip
         let card = document.createElement('div')
         card.setAttribute("class","card")
