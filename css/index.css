@@ -38,19 +38,39 @@ form {
 
 #dragon-button {
   width: 30%;
+  height: 400%;
   font-family: inherit;
-    font-size: 14px;
-  color: #ffffff;
+  font-size: 1px;
+  text-align: center;
+  color: #0000ffffff;
   background-color: #ffffff;
-  /*border-color: #74140C;*/
-  /*border-radius: 25px;*/
+  background-image: url(https://vignette.wikia.nocookie.net/potbs/images/6/63/Welsh_dragon_3.png/revision/latest?cb=20080212065920);
+  background-size:cover; /* <-- scale the image to cover the button */
+  background-position:center center; /* <-- center the image in the button */
+  padding: 40px;
 }
 
 #not-dragon-button{
   display: inline;
-  float: right;
+  /*opacity: 1;*/
 }
 
+#not-dragon-button:hover #dragon-button{
+  /*transition: .5s ease;*/
+  /*opacity: 0;*/
+  width: 30%;
+  height: 400%;
+  background-color: #74140C;
+  font-family: inherit;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  padding: 25px;
+  /*top: 50%;
+  left: 50%;*/
+  /*transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)*/
+}
 
 #button-container {
   width: 100%;
@@ -117,6 +137,7 @@ input{
 
 input:hover{
   cursor: url(http://cur.cursors-4u.net/sports/spo-1/spo15.cur), progress !important;
+
 }
 
 span {
