@@ -90,9 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
       descriptionText.innerText = editText(user,stageArray[0].description)
       // bulleted option text
       stageArray.forEach(object => {
-        let li = document.createElement('li')
-        li.innerText = editText(user, object.body)
-        bodyList.appendChild(li)
+        // let li = document.createElement('li')
+        // li.innerText = editText(user, object.body)
+        // bodyList.appendChild(li)
         // building cards for flip
         let card = document.createElement('div')
         card.setAttribute("class","card")
@@ -137,9 +137,9 @@ document.addEventListener('DOMContentLoaded', function() {
       descriptionText.innerText = editText(user,stageArray[0].description)
       // bulleted option text
       stageArray.forEach(object => {
-        let li = document.createElement('li')
-        li.innerText = object.body
-        bodyList.appendChild(li)
+        // let li = document.createElement('li')
+        // li.innerText = object.body
+        // bodyList.appendChild(li)
         // building cards for flip
         let card = document.createElement('div')
         card.setAttribute("class","card")
