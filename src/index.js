@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let stageArray = [];
     if (selected){
+
       data.forEach(object => {
         if (object.stage === selected){
           stageArray.push(object)
