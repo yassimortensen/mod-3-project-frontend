@@ -20,9 +20,10 @@ body {
   padding: 10px;
   line-height: 1.5;
   height: auto;
-  width: 75%;
-  margin-top: 30px;
+  width: 85%;
+  margin-top: 75px;
   opacity: 0.8;
+  overflow-y: scroll;
 }
 
 #dragon{
@@ -43,7 +44,11 @@ form {
   background-color: #ffffff;
   /*border-color: #74140C;*/
   /*border-radius: 25px;*/
+}
 
+#not-dragon-button{
+  display: inline;
+  float: right;
 }
 
 

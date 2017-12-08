@@ -74,24 +74,32 @@ document.addEventListener('DOMContentLoaded', function() {
     while (buttons[0]) buttons[0].parentNode.removeChild(buttons[0])
 
     function editText(user,textToEdit){
-      if (textToEdit.includes("`${characterName}`")){
-        textToEdit = textToEdit.replace("`${characterName}`", user.characterName)
-        if (textToEdit.includes("`${firstJob}`")){
-          textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
-          if (textToEdit.includes("`${favFood}`")){
-            textToEdit = textToEdit.replace("`${favFood}`", user.favFood)
-          }
-        }
-      } else if (textToEdit.includes("`${firstJob}`")) {
-        textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
-      } else if (textToEdit.includes("`${favFood}`")){
-        textToEdit = textToEdit.replace("`${favFood}`", user.favFood)
-      }
+        textToEdit = textToEdit.replace(/CHARACTERNAME/gi, user.characterName)
+        textToEdit = textToEdit.replace(/JOB/gi, user.firstJob)
+        textToEdit = textToEdit.replace(/FAVFOOD/gi, user.favFood)
       return textToEdit
     }
 
+    // function editText(user,textToEdit){
+    //   if (textToEdit.includes("`${characterName}`")){
+    //     textToEdit = textToEdit.replace("`${characterName}`", user.characterName)
+    //     if (textToEdit.includes("`${firstJob}`")){
+    //       textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
+    //       if (textToEdit.includes("`${favFood}`")){
+    //         textToEdit = textToEdit.replace(/`${favFood}`/g, user.favFood)
+    //       }
+    //     }
+    //   } else if (textToEdit.includes("`${firstJob}`")) {
+    //     textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
+    //   } else if (textToEdit.includes("`${favFood}`")){
+    //     textToEdit = textToEdit.replace("`${favFood}`", user.favFood)
+    //   }
+    //   return textToEdit
+    // }
+
     let stageArray = [];
     if (selected){
+
       data.forEach(object => {
         if (object.stage === selected){
           stageArray.push(object)
@@ -102,10 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
       descriptionText.innerText = editText(user,stageArray[0].description)
       // bulleted option text
       stageArray.forEach(object => {
+<<<<<<< HEAD
 >>>>>>> 66674fa739b5cf45df0cc8c99b7e6edc402854ad
         let li = document.createElement('li')
         li.innerText = editText(user, object.body)
         bodyList.appendChild(li)
+=======
+>>>>>>> draft
         // building cards for flip
         let card = document.createElement('div')
         card.setAttribute("class","card")
@@ -144,15 +155,10 @@ document.addEventListener('DOMContentLoaded', function() {
           return stageArray.push(object)
         }
       })
-      //welcome header
-      document.getElementById('welcome').innerText=`Welcome, ${user.name}`
       // description/long prompt text
       descriptionText.innerText = editText(user,stageArray[0].description)
       // bulleted option text
       stageArray.forEach(object => {
-        let li = document.createElement('li')
-        li.innerText = object.body
-        bodyList.appendChild(li)
         // building cards for flip
         let card = document.createElement('div')
         card.setAttribute("class","card")
