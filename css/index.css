@@ -22,15 +22,30 @@ body {
   height: auto;
   width: 75%;
   margin-top: 30px;
+  opacity: 0.8;
 }
 
 #dragon{
-  display: inline-block;
+  display: inline;
+  border-radius: 0px;
+  box-shadow: 0px 00px 0px black;
 }
 
 form {
   display: inline-block;
 }
+
+#dragon-button {
+  width: 30%;
+  font-family: inherit;
+    font-size: 14px;
+  color: #ffffff;
+  background-color: #ffffff;
+  /*border-color: #74140C;*/
+  /*border-radius: 25px;*/
+
+}
+
 
 #button-container {
   width: 100%;
@@ -64,6 +79,14 @@ img {
     height: 100%;
 }
 
+#title {
+  width: auto;
+  font-family: inherit;
+  font-size: 35px;
+  color: #FFD700;
+  margin-left: 50px;
+}
+
 button {
   width: auto;
   font-family: inherit;
@@ -87,6 +110,9 @@ input:hover{
   cursor: url(http://cur.cursors-4u.net/sports/spo-1/spo15.cur), progress !important;
 }
 
+span {
+  padding-left: 10px;
+}
 
 /*attempts at animating the box shadow*/
 /*@keyframes shadowPulse {
@@ -152,3 +178,4 @@ input:hover{
 }
 
 /*~~~~~~~~~~~~~~~~~ALL SIDE NAV ANI~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~Dragon Button~~~~~~~~~~~~~~~~~~~~~*/

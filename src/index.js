@@ -60,9 +60,26 @@ document.addEventListener('DOMContentLoaded', function() {
     let buttons = document.getElementsByClassName('card')
     while (buttons[0]) buttons[0].parentNode.removeChild(buttons[0])
 
+    function editText(user,textToEdit){
+      if (textToEdit.includes("`${characterName}`")){
+        textToEdit = textToEdit.replace("`${characterName}`", user.characterName)
+        if (textToEdit.includes("`${firstJob}`")){
+          textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
+          if (textToEdit.includes("`${favFood}`")){
+            textToEdit = textToEdit.replace("`${favFood}`", user.favFood)
+          }
+        }
+      } else if (textToEdit.includes("`${firstJob}`")) {
+        textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
+      } else if (textToEdit.includes("`${favFood}`")){
+        textToEdit = textToEdit.replace("`${favFood}`", user.favFood)
+      }
+      return textToEdit
+    }
+
     let stageArray = [];
     if (selected){
-      
+
       data.forEach(object => {
         if (object.stage === selected){
           stageArray.push(object)
@@ -70,12 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       document.getElementById('previous_steps').style.visibility="visible"
       // description/long prompt text
-      descriptionText.innerText = stageArray[0].description
+      descriptionText.innerText = editText(user,stageArray[0].description)
       // bulleted option text
       stageArray.forEach(object => {
-
         let li = document.createElement('li')
-        li.innerText = object.body
+        li.innerText = editText(user, object.body)
         bodyList.appendChild(li)
         // building cards for flip
         let card = document.createElement('div')
@@ -95,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // step.innerText = selected
         // mySidenav.appendChild(step)
         let button = document.createElement('button')
-        button.id = `${object.button}`
-        button.innerText = object.body
+        button.id = editText(user,`${object.button}`)
+        button.innerText = editText(user,object.body)
         button.addEventListener("click", function(){
           displayStage(data, user, event.target.id)
           persistStory(user.id, object.id)
@@ -115,9 +131,10 @@ document.addEventListener('DOMContentLoaded', function() {
           return stageArray.push(object)
         }
       })
+      //welcome header
+      document.getElementById('welcome').innerText=`Welcome, ${user.name}`
       // description/long prompt text
-      descriptionText.innerText = stageArray[0].description
-      descriptionText.innerText.replace("Hot Pie", user.name)
+      descriptionText.innerText = editText(user,stageArray[0].description)
       // bulleted option text
       stageArray.forEach(object => {
         let li = document.createElement('li')
