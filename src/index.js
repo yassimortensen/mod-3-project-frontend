@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     .addEventListener("submit", event => {
       event.preventDefault()
 
-      let username = document.getElementById('form-name').value
+      let username = null
       let character = document.getElementById('form-character').value
       let food = document.getElementById('form-food').value
       let job = document.getElementById('form-job').value
-      let animal = document.getElementById('form-animal').value
+      let animal = null
       createNewUser(username, character, food, job, animal)
     })
 
@@ -201,16 +201,23 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function addToSideBar(userStory){
-
     if (userStory.story_stage.nextStep === "#top"){
       let sideBarElements = document.getElementsByClassName('sidebar-element')
       while (sideBarElements[0]) sideBarElements[0].parentNode.removeChild(sideBarElements[0])
     }
 
+    function editText(user, textToEdit){
+      
+        textToEdit = textToEdit.replace(/CHARACTERNAME/gi, user.characterName)
+        textToEdit = textToEdit.replace(/JOB/gi, user.firstJob)
+        textToEdit = textToEdit.replace(/FAVFOOD/gi, user.favFood)
+      return textToEdit
+    }
+
     let step = document.createElement('a')
     step.setAttribute("class", "sidebar-element")
     let mySidenav = document.getElementById('mySidenav')
-    step.innerText = userStory.story_stage.body
+    step.innerText = editText(userStory.user, userStory.story_stage.body)
     mySidenav.appendChild(step)
 
   }
