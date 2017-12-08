@@ -61,21 +61,28 @@ document.addEventListener('DOMContentLoaded', function() {
     while (buttons[0]) buttons[0].parentNode.removeChild(buttons[0])
 
     function editText(user,textToEdit){
-      if (textToEdit.includes("`${characterName}`")){
-        textToEdit = textToEdit.replace("`${characterName}`", user.characterName)
-        if (textToEdit.includes("`${firstJob}`")){
-          textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
-          if (textToEdit.includes("`${favFood}`")){
-            textToEdit = textToEdit.replace("`${favFood}`", user.favFood)
-          }
-        }
-      } else if (textToEdit.includes("`${firstJob}`")) {
-        textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
-      } else if (textToEdit.includes("`${favFood}`")){
-        textToEdit = textToEdit.replace("`${favFood}`", user.favFood)
-      }
+        textToEdit = textToEdit.replace(/CHARACTERNAME/gi, user.characterName)
+        textToEdit = textToEdit.replace(/JOB/gi, user.firstJob)
+        textToEdit = textToEdit.replace(/FAVFOOD/gi, user.favFood)
       return textToEdit
     }
+
+    // function editText(user,textToEdit){
+    //   if (textToEdit.includes("`${characterName}`")){
+    //     textToEdit = textToEdit.replace("`${characterName}`", user.characterName)
+    //     if (textToEdit.includes("`${firstJob}`")){
+    //       textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
+    //       if (textToEdit.includes("`${favFood}`")){
+    //         textToEdit = textToEdit.replace(/`${favFood}`/g, user.favFood)
+    //       }
+    //     }
+    //   } else if (textToEdit.includes("`${firstJob}`")) {
+    //     textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
+    //   } else if (textToEdit.includes("`${favFood}`")){
+    //     textToEdit = textToEdit.replace("`${favFood}`", user.favFood)
+    //   }
+    //   return textToEdit
+    // }
 
     let stageArray = [];
     if (selected){
