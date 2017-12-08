@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function displayStage(data, user, selected=null){
-    let stageTitle = document.getElementById('stage-text')
     let descriptionText = document.getElementById('description-text')
     let bodyList = document.getElementById('body-list')
     let buttonDiv = document.getElementById('button-container')
@@ -67,31 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
       return textToEdit
     }
 
-    // function editText(user,textToEdit){
-    //   if (textToEdit.includes("`${characterName}`")){
-    //     textToEdit = textToEdit.replace("`${characterName}`", user.characterName)
-    //     if (textToEdit.includes("`${firstJob}`")){
-    //       textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
-    //       if (textToEdit.includes("`${favFood}`")){
-    //         textToEdit = textToEdit.replace(/`${favFood}`/g, user.favFood)
-    //       }
-    //     }
-    //   } else if (textToEdit.includes("`${firstJob}`")) {
-    //     textToEdit = textToEdit.replace("`${firstJob}`",user.firstJob)
-    //   } else if (textToEdit.includes("`${favFood}`")){
-    //     textToEdit = textToEdit.replace("`${favFood}`", user.favFood)
-    //   }
-    //   return textToEdit
-    // }
-
     let stageArray = [];
     if (selected){
-
+      
       data.forEach(object => {
         if (object.stage === selected){
           stageArray.push(object)
         }
       })
+
       document.getElementById('previous_steps').style.visibility="visible"
       // description/long prompt text
       descriptionText.innerText = editText(user,stageArray[0].description)
@@ -111,9 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
         img.setAttribute("src",`${object.pic.picUrl}`)
         front.appendChild(img)
         //building button for back of card
-        // let step = document.createElement('a')
-        // step.innerText = selected
-        // mySidenav.appendChild(step)
         let button = document.createElement('button')
         button.id = editText(user,`${object.button}`)
         button.innerText = editText(user,object.body)
@@ -169,18 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
         $(".card").flip({
           trigger:'hover'
         })
-        // attempts at animating the box shadow
-        // $(".card").addClass('shadow-pulse');
-        // $(".card").on('cssanimationend', function(){
-        //   $(".card").removeClass('shadow-pulse');
-        //   // do something else...
-        // });
-        // $(".card").animate({
-        //   'trigger': 'hover',
-        //   'boxShadowX': '10px',
-        //   'boxShadowY':'10px',
-        //   'boxShadowBlur': '20px'
-        // });
       })
     }
   }
@@ -208,7 +176,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function editText(user, textToEdit){
-      
         textToEdit = textToEdit.replace(/CHARACTERNAME/gi, user.characterName)
         textToEdit = textToEdit.replace(/JOB/gi, user.firstJob)
         textToEdit = textToEdit.replace(/FAVFOOD/gi, user.favFood)
@@ -222,8 +189,5 @@ document.addEventListener('DOMContentLoaded', function() {
     mySidenav.appendChild(step)
 
   }
-
-  // let ulList = document.getElementsByTagName('li')
-  // while (ulList[0]) ulList[0].parentNode.removeChild(ulList[0])
 
 })

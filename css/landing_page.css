@@ -1,7 +1,0 @@
-#nav {
-  disply: flex;
-  background: red;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  padding: 20px;
-}
