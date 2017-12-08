@@ -9,12 +9,14 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
   </head>
   <body>
+    <h1 id=title>Game of Dethrones</h1>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      
+
     </div>
-    <span style="font-size:30px;cursor:pointer;color:white;margin:50px" onclick="openNav()">&#9776; Previous Steps</span>
+    <span id="previous_steps" style="font-size:30px;cursor:pointer;color:white;margin:50px;visibility:hidden;" onclick="openNav()">&#9776; Previous Steps</span>
     <div id="game-modal">
+      <h2 id="welcome"></h2>
 
       <!-- <div id="main">
         <div id="center-text" class="home-group" onclick="transitionPage(this, HOMEGROUP, MUDBLOODGROUP)">
@@ -24,29 +26,34 @@
 
       <form id="user-form" method="post">
         <h1>Create an Account</h1>
-        <h2>Name: <input id="form-name" type="text" placeholder="name"></h2>
-        <h2>Character Name: <input id="form-character" type="text" placeholder="character name"></h2>
-        <h2>Favorite Food: <input id="form-food" type="text" placeholder="favorite food"></h2>
-        <h2>First Job: <input id="form-job" type="text" placeholder="first job"></h2>
-        <h2>Favorite Animal: <input id="form-animal" type="text" placeholder="favorite animal"></h2>
-        <h2><input type="submit" value="Submit">
-      </form>
+        <h2>Name: <br><input id="form-name" type="text" placeholder="name"></h2>
+        <h2>Character Name: <br><input id="form-character" type="text" placeholder="character name"></h2>
+        <h2>Favorite Food: <br><input id="form-food" type="text" placeholder="favorite food"></h2>
+        <h2>First Job: <br><input id="form-job" type="text" placeholder="first job"></h2>
+        <h2>Favorite Animal: <br><input id="form-animal" type="text" placeholder="favorite animal"></h2>
+        <!-- <input type="submit" value="Play The Game Of Thrones"> -->
+        <button id="dragon-button" type="submit" value="Play Game of Dethroned"><img src="https://vignette.wikia.nocookie.net/potbs/images/6/63/Welsh_dragon_3.png/revision/latest?cb=20080212065920"/></button>
+
+     </form>
+
 
       <h2 id="stage-text"></h2>
       <h3 id="description-text"></h3>
       <ul id="body-list"></ul>
       <div id="button-container"></div>
     </div>
+
+    <div style="visibility:hidden">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/s7L2PVdrb_8?listType=user_uploads&&loop=1&autoplay=1&rel=0&showinfo=0&controls=0&autohide=1" frameborder="0"gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
     <script type="text/javascript" src="src/index.js"></script>
     <script>
       function openNav() {
           document.getElementById("mySidenav").style.width = "250px";
       }
-
       function closeNav() {
           document.getElementById("mySidenav").style.width = "0";
       }
-
     </script>
   </body>
 </html>
