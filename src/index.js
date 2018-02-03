@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let stageArray = [];
     if (selected){
-      
+
       data.forEach(object => {
         if (object.stage === selected){
           stageArray.push(object)
@@ -79,6 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
       descriptionText.innerText = editText(user,stageArray[0].description)
       // bulleted option text
       stageArray.forEach(object => {
+        if (object.nextStep === "#top"){
+          let bloodSplatter = document.getElementById('blood-splatter').style.visibility="visible"
+        } else {
+          let bloodSplatter = document.getElementById('blood-splatter').style.visibility="hidden"
+        }
+
         // building cards for flip
         let card = document.createElement('div')
         card.setAttribute("class","card")
